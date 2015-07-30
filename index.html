@@ -13,20 +13,37 @@ and open the template in the editor.
         <link href="style.css" type="text/css" rel="stylesheet" />
      
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    
         
         <script>
         
-   
-        var main = function () {
-            $('#buttonOverOns').click(function () {
-                $('html, body').animate({
-                    scrollTop: $("#overOns").offset().top() -65
-                }, 500);
+        
+        var posPortfolio = $('#portfolio').offset().top;
+        var scroll = function () {
+        //    $('#buttonOverOns').click(function () {
+        //        $("html, body").animate({
+        //            $()
+        //        });
+        //    });
+            
+           $("a[href='#overOns']").click(function() {
+                $("html, body").animate({ scrollTop: 700 },  "slow");
+                return false;
+            });
+            $("a[href='#home']").click(function() {
+                $("html, body").animate({ scrollTop: 0 },  "slow");
+                return false;
+            });
+            $("a[href='#portfolio']").click(function() {
+                $("html, body").animate({ scrollTop: (posPortfolio) },  "slow");
+                return false;
+            });
+            $("a[href='#contact']").click(function() {
+                $("html, body").animate({ scrollTop: 2420 },  "slow");
+                return false;
             });
         };
 
-        $(document).ready(main);
+        $(document).ready(scroll);
     
         
         </script>
@@ -57,10 +74,10 @@ and open the template in the editor.
                 
                 
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li id="#buttonOverOns"><a href="#">Over ons</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li id="#buttonOverOns"><a href="#overOns" id="#buttonOverOns">Over ons</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
                 
             </div>
@@ -139,7 +156,9 @@ and open the template in the editor.
         <div id="contact">
             <div class="container">
                 
-                contact
+                <h1><p class="stripes">═</p> Contact </h1>
+                
+                <a href="#top">Top</a>
                 
             </div>
             
