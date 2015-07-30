@@ -273,3 +273,15 @@ a {
     background-repeat: repeat-x;
     box-shadow: 0px -5px 15px #878787;
 }
+
+#contact .container {
+    margin: 0px auto;
+}
+
+#contact h1 {
+    text-align: center;
+    font-family: 'Generica';
+    font-size: 40px;
+    font-weight: normal;
+    color: #FFFFFF;
+}
