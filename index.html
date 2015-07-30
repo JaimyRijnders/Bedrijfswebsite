@@ -17,7 +17,7 @@ and open the template in the editor.
         <script>
         
         
-        var posPortfolio = $('#portfolio').offset().top;
+        //var posPortfolio = $('#portfolio').offset().top;
         var scroll = function () {
         //    $('#buttonOverOns').click(function () {
         //        $("html, body").animate({
@@ -25,20 +25,12 @@ and open the template in the editor.
         //        });
         //    });
             
-           $("a[href='#overOns']").click(function() {
-                $("html, body").animate({ scrollTop: 700 },  "slow");
-                return false;
-            });
-            $("a[href='#home']").click(function() {
-                $("html, body").animate({ scrollTop: 0 },  "slow");
-                return false;
-            });
-            $("a[href='#portfolio']").click(function() {
-                $("html, body").animate({ scrollTop: (posPortfolio) },  "slow");
-                return false;
-            });
-            $("a[href='#contact']").click(function() {
-                $("html, body").animate({ scrollTop: 2420 },  "slow");
+           $("#nav a").click(function() {
+               console.log(this);
+               var target = this.href;
+               var pos = target.lastIndexOf("#");
+               var target = target.substring(pos+1);
+                $("html, body").animate({ scrollTop: $("#" + target).position().top }, "slow");
                 return false;
             });
         };
