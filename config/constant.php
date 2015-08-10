@@ -1,6 +1,7 @@
 <?php
 // main folder
-define ('URL', '//');
+define ('URL', '/Bedrijfswebsite/');
+define ('IMG', URL . 'public/img/');
 
 // database settings
 define('DB_TYPE', 'mysql');
