@@ -10,23 +10,26 @@
             echo 'style';
         }
         ?>.css'>
-              <?php
-              if (isset($this->script)) {
-                  ?>
-                    <script src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
-                    <script src='<?php echo URL ?>public/js/<?php echo $this->script;?>.js'></script>
-                        
-                        <?php
+        <script src='http://code.jquery.com/jquery-1.11.0.min.js'></script>
 
+        <?php
+        //script moet in array worden geleverd
+        if (isset($this->script)) {
+            foreach ($this->script as $script) {
+                echo "<script src='" . URL . "public/js/" . $script . ".js'></script>";
             }
             ?>
-        </head>
-        <body>
-            <div id="nav">
-                <div class="container">
-                    <div id="logo">
-                        <a href="<?php echo URL ?>index.php">
-                            <img src="<?php echo IMG ?>logo.png" id="logoIMG">
+
+            <?php
+        }
+        ?>
+    </head>
+    <body>
+        <div id="nav">
+            <div class="container">
+                <div id="logo">
+                    <a href="<?php echo URL ?>index.php">
+                        <img src="<?php echo IMG ?>logo.png" id="logoIMG">
                         <h1>
                             Blue Lotus
                         </h1>

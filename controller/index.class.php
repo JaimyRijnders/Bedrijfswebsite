@@ -5,7 +5,8 @@ class Index extends Controller{
     public function __construct(){
 	parent::__construct();
 	$this->view->title = 'Home';
-        $this->view->script = 'script';
+        $this->view->script[] = 'script';
+        $this->view->script[] = 'makeEditable';
         //$this->view->script = 'bedrijf';
     }
 
