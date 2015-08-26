@@ -8,12 +8,15 @@ class Router{
 	$url = explode('/', $url);
 
 	// for debugging
-	// print_r($url);
+	//print_r($url);
 	// print_r($_SESSION);
 
 	if(empty($url[0])){
 	    require 'controller/index.class.php';
 	    $controller = new Index();
+            
+            //zodat de index ook een model mag hebben
+            $controller->loadmodel("index");
 	    $controller->index();
 	    return false;
 	}

@@ -6,6 +6,6 @@ define ('IMG', URL . 'public/img/');
 // database settings
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', '');
+define('DB_NAME', 'bedrijf');
 define('DB_USER', 'root');
 define('DB_PASS', '');
