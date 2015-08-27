@@ -6,20 +6,36 @@ var editing = {
         element = document.getElementById("editing");
         element.innerHTML = "<textarea id='editingArea' width='100%'>" + element.textContent + "</textarea>";
         newTextArea = document.getElementById("editingArea");
-        newTextArea.focus().autoSize();
+        newTextArea.focus();
 
     },
     removeEditing: function () {
         text = $("#editing textarea").val();
         $("#editing").html($("#editingArea").val());
         $("#editing").addClass("editable").attr("id", "")
+    },
+    sendWithAjax: function (id, content) {
+        $.ajax({
+            method: "POST",
+            data: {
+                id: id,
+                content: content,
+                target: "send"
+            },
+            url: "/Bedrijfswebsite/ajax"
+        }).done(function (data) {
+            console.log(data);
+
+        });
     }
 }
 $("document").ready(function () {
     $(document)
             .on("focusout", "#editing textarea", function () {
                 console.log("Blurry");
-               editing.removeEditing();
+                $.when(editing.sendWithAjax(1, $("#editing textarea").val())).done(function () {
+                    editing.removeEditing();
+                });
             })
             .on("click", ".editable", function () {
                 console.log(this);

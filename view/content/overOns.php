@@ -3,7 +3,7 @@
         <h1>
             <p class="stripes">
                 ==
-            </p> 
+            </p>
             <?php
                 echo $this->allContent["Over Ons"][0]["title"];
             ?>
