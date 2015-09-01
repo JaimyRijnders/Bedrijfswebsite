@@ -26,7 +26,7 @@ class Ajax extends Controller {
                     }
                     break;
                 case "delete":
-                    if(isset($id)){
+                    if (isset($id)) {
                         $this->deleteAjax($id);
                     }
                     break;
@@ -38,11 +38,20 @@ class Ajax extends Controller {
     }
 
     private function updateAjax($id, $content) {
-        $this->model->editElement($id, $content);
+        echo $this->model->editElement($id, $content);
     }
 
     private function insertAjax($parent) {
-        echo $this->model->addElement($parent);
+        $data = $this->model->addElement($parent);
+        if (gettype($data) != "array") {
+            echo $data;
+        } else {
+            //quickfix, ik ben een luie flikker
+            $data = $data[0];
+            echo '<p class="mainText editable" data-id="' . $data['id'] . '">'
+                . $data["content"] .
+            '</p><span class="deleteElement" data-id="' . $data['id'] . '">Delete</span>';
+        }
     }
 
     private function deleteAjax($id) {

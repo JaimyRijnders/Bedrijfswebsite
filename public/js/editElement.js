@@ -27,8 +27,8 @@ var editing = {
             },
             url: "/Bedrijfswebsite/ajax"
         }).done(function (data) {
-            if(data !== 0){
-                console.log(data);
+            if(data[0] !== false){
+                $("[data-parent='" + parent + "']").before(data);
             }
         });
     },

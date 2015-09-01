@@ -33,7 +33,20 @@ class Ajax_Model extends Model {
                 ':type' => "0",
                 ':media' => "0"
             ));
-            return true;
+            
+            //laatst gemaakte element aanvragen
+            $sth = $this->dbh->prepare("SELECT * FROM `main`
+                            INNER JOIN `elements`
+                            ON main.id = elements.parent
+                            ORDER BY elements.id DESC LIMIT 1");
+           try{
+            
+               $sth->execute();
+               return $sth->fetchall(PDO::FETCH_ASSOC);
+               
+           } catch (PDOException $e) {
+            return 'Error: ' . $e->getMessage();
+        }
         } catch (PDOException $e) {
             return 'Error: ' . $e->getMessage();
         }
