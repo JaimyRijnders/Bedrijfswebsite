@@ -19,6 +19,9 @@ a {
     color: inherit;
 }
 
+pre{
+    font-family: inherit;
+}
 /*    Navigator    */
 
 #nav {

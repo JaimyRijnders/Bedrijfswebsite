@@ -15,7 +15,7 @@
         </div>
         <?php
             foreach($this->allContent["Over Ons"] as $overOns) {
-                echo  '<p class="mainText editable">' . $overOns["content"] . '</p>';
+                echo  '<pre><p class="mainText editable" data-id="' . $overOns['id'] . '">' . $overOns["content"] . '</p></pre>';
             }
         ?>
     </div>
