@@ -4,10 +4,10 @@ class Index extends Controller {
 
     public function __construct() {
         parent::__construct();
+        $_SESSION['cms'] = true;
         $this->view->title = 'Home';
         $this->view->script[] = 'script';
-        $this->view->script[] = 'makeEditable';
-        $this->view->script[] = 'autoSize';
+        $this->view->script[] = 'editElement';
         //$this->view->script = 'bedrijf';
     }
 
@@ -24,17 +24,19 @@ class Index extends Controller {
     public function getContent($page = false) {
         if ($page) {
             $content = $this->model->getContentFrom($page);
+            $this->view->title = $this->model->getTitle($page);
         } else {
             $content = $this->model->getAllContent();
             $content = $this->sortContent($content);
-            return $content;
         }
+        return $content;
     }
 
     //sort de content by groep
     public function sortContent($content) {
+        $newContent = "";
         foreach($content as $key => $value){
-                $newContent[$value['title']][] = $content[$key];
+                $newContent[$value['parent']][] = $content[$key];
         }
        return $newContent;
     }

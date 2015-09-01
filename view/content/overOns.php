@@ -1,3 +1,6 @@
+<?php
+$parent = 1;
+?>
 <div id="overOns">
     <div class="container">
         <h1>
@@ -5,7 +8,7 @@
                 ==
             </p>
             <?php
-                echo $this->allContent["Over Ons"][0]["title"];
+            echo $this->allContent[$parent][0]["title"];
             ?>
         </h1>
 
@@ -14,9 +17,18 @@
             <div id="photoJaimy"></div>
         </div>
         <?php
-            foreach($this->allContent["Over Ons"] as $overOns) {
-                echo  '<pre><p class="mainText editable" data-id="' . $overOns['id'] . '">' . $overOns["content"] . '</p></pre>';
-            }
+        foreach ($this->allContent[$parent] as $overOns) {
+            echo '<p class="mainText editable" data-id="' . $overOns['id'] . '">' 
+                    . $overOns["content"] . 
+                '</p><span class="deleteElement" data-id="' . $overOns['id'] . '">Delete</span>';
+        }
+
+        if ($_SESSION['cms']) {
+            echo '
+            <div class = "addElement" data-parent = "'. $parent . '">
+            +
+            </div>';
+        }
         ?>
     </div>
 

@@ -13,5 +13,9 @@ class Index_Model extends Model {
         $sth->execute();
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
+    
+    public function getContentFrom($page){
+        
+    }
 
 }

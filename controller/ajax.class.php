@@ -8,23 +8,45 @@ class Ajax extends Controller {
     }
 
     public function index() {
-        if (isset($_POST['id']) && isset($_POST['target'])) {
-            $id = $_POST['id'];
+        if (isset($_POST['target'])) {
+            if (isset($_POST['id'])) {
+                $id = $_POST['id'];
+            }
             $target = $_POST['target'];
 
-            switch ($_POST['target']) {
-                case "send":
+            switch ($target) {
+                case "update":
                     if (isset($_POST['content'])) {
-                        $this->sendAjax($id, $_POST['content']);
+                        $this->updateAjax($id, $_POST['content']);
+                    }
+                    break;
+                case "insert":
+                    if (isset($_POST['parent'])) {
+                        $this->insertAjax($_POST['parent']);
+                    }
+                    break;
+                case "delete":
+                    if(isset($id)){
+                        $this->deleteAjax($id);
                     }
                     break;
             }
+        } else {
+            echo "Geen target gezet";
         }
         exit;
     }
 
-    public function sendAjax($id, $content) {
+    private function updateAjax($id, $content) {
         $this->model->editElement($id, $content);
+    }
+
+    private function insertAjax($parent) {
+        echo $this->model->addElement($parent);
+    }
+
+    private function deleteAjax($id) {
+        echo $this->model->deleteElement($id);
     }
 
 }
