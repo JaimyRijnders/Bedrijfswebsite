@@ -11,9 +11,9 @@
         <p class="mainText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacinia auctor massa feugiat pharetra. In tincidunt metus odio, id egestas.</p>
         <center>
             <ul>
-                <li>1</li>
-                <li>2</li>		
-                <li>3</li>
+                <li id="preview1">1</li>
+                <li id="preview2">2</li>		
+                <li id="preview3">3</li>
             </ul>
         </center>    
     </div>
