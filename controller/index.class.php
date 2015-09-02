@@ -6,6 +6,7 @@ class Index extends Controller {
         parent::__construct();
         $_SESSION['cms'] = true;
         $this->view->title = 'Home';
+        $this->view->script[] = "jquery";
         $this->view->script[] = 'script';
         $this->view->script[] = 'editElement';
         //$this->view->script = 'bedrijf';
@@ -13,12 +14,65 @@ class Index extends Controller {
 
     public function index() {
         $this->view->getHeader();
-        $this->view->allContent = $this->getContent();
+        //$this->view->allContent = $this->getContent();
         $this->view->render('index');
-        $this->view->render('overOns');
-        $this->view->render('portfolio');
-        $this->view->render('contact');
-        $this->view->getFooter();
+        $content = $this->getContent();
+        foreach ($content as $page) {
+            $this->view->title = $page[0]['title'];
+            $this->view->render("subs/title");
+            foreach ($page as $overOns) {
+                
+                //nodige variabelen opvragen
+                $id = $overOns['id'];
+                $type = $overOns['type'];
+                $this->view->parent = $overOns['parent'];
+                //kijken of er media bij betrokken is
+                //media path aanmaken voor later
+                $css_media_path = array();
+                if ($mediaId = json_decode($overOns['mediaId'])) {
+                    //media id's decoden naar php array
+                    $mediaId = json_decode($overOns['mediaId']);
+                    //uitlezen en "joinen" aan de overOns array
+                    foreach ($mediaId as $mediumId) {
+                        $result = $this->model->getMedium($mediumId);
+                        $result = $result[0];
+                        //0 achter result om een nutteloze array te voorkomen
+                        $overOns['media'][] = $result;
+                        $css_media_path[] = "public/css/subs/media/" . $result["type"] . ".php";
+                        //voor elk medium de css inladen
+                        foreach ($css_media_path as $media_path) {
+                            //kijken of het bestand bestaat
+                            if (file_exists($media_path)) {
+                                //als het bestaad inladen en de juiste parameters inladen
+                                $this->view->subCss[] = $media_path . "?id=" . $result['id'] .
+                                        "&url=" . URL . "public/img/" . $result['url'] .
+                                        "&settings=" . $result['settings'];
+                            }
+                        }
+                    }
+                }
+                //kijken of media bestaat
+                if (isset($overOns['media'])) {
+                    //media doorgeven aan de view
+                    $this->view->media = $overOns['media'];
+                }
+                //kijken of een css voor deze view is
+                $css_path = "public/css/subs/" . $type . ".php";
+                if (file_exists($css_path)) {
+                    //css inladen
+                    $this->view->subCss[] = $css_path;
+                }
+                //goede instellingen in de view zetten
+                $this->view->id = $id;
+                $this->view->content = $overOns['content'];
+                //Zorgen dat de goede view wordt ingeladen en gerenderd
+                $this->view->render("subs/" . $type);
+            }
+            $this->view->render("subs/subFooter");
+            $this->view->render('portfolio');
+            $this->view->render('contact');
+            $this->view->getFooter();
+        }
     }
 
     public function getContent($page = false) {
@@ -35,10 +89,10 @@ class Index extends Controller {
     //sort de content by groep
     public function sortContent($content) {
         $newContent = "";
-        foreach($content as $key => $value){
-                $newContent[$value['parent']][] = $content[$key];
+        foreach ($content as $key => $value) {
+            $newContent[$value['parent']][] = $content[$key];
         }
-       return $newContent;
+        return $newContent;
     }
 
 }

@@ -33,32 +33,47 @@ class Ajax_Model extends Model {
                 ':type' => "0",
                 ':media' => "0"
             ));
-            
+
             //laatst gemaakte element aanvragen
             $sth = $this->dbh->prepare("SELECT * FROM `main`
                             INNER JOIN `elements`
                             ON main.id = elements.parent
                             ORDER BY elements.id DESC LIMIT 1");
-           try{
-            
-               $sth->execute();
-               return $sth->fetchall(PDO::FETCH_ASSOC);
-               
-           } catch (PDOException $e) {
-            return 'Error: ' . $e->getMessage();
-        }
+                $sth->execute();
+                return $sth->fetchall(PDO::FETCH_ASSOC);
+                
         } catch (PDOException $e) {
             return 'Error: ' . $e->getMessage();
         }
     }
-    
+
     public function deleteElement($id) {
         $sth = $this->dbh->prepare("DELETE FROM elements WHERE id = :id");
         try {
             $sth->execute(array(
                 ':id' => $id
             ));
+            $this->fixPlacing();
             return true;
+        } catch (PDOException $e) {
+            return 'Error: ' . $e->getMessage();
+        }
+    }
+
+    private function fixPlacing() {
+        $sth = $this->dbh->prepare("SELECT * FROM elements ORDER BY place ASC");
+        try {
+            $sth->execute();
+            $results = $sth->fetchall(PDO::FETCH_ASSOC);
+            $i=0;
+            foreach($results as $result){
+                $sth= $this->dbh->prepare("UPDATE elements SET place = :i WHERE id = :id ");
+                $sth->execute(Array(
+                    ":i" => $i,
+                    ":id" => $result["id"]
+                ));
+                $i= $i + 10;
+            }
         } catch (PDOException $e) {
             return 'Error: ' . $e->getMessage();
         }

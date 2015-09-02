@@ -172,7 +172,7 @@ pre{
     margin: 0px auto;
     padding: 30px;
 }
-
+/*
 #photoJonas {
     height: 100%;
     width: 350px;
@@ -182,12 +182,12 @@ pre{
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 3px 3px 3px grey;
-    -webkit-transition: background-image 0.5s; /* Safari 3.1 to 6.0 */
+    -webkit-transition: background-image 0.5s; /* Safari 3.1 to 6.0 *//*
     transition: background-image 0.5s;
 }
 
 #photoJonas:hover {
-    background-image: url('hover1.png');
+    background-image: url('../img/hover1.png');
     cursor: pointer;
 }
 
@@ -196,11 +196,11 @@ pre{
     width: 350px;
     float: right;
     border: 0px dotted red;
-    background-image: url('http://cache2.asset-cache.net/gc/160611569-testimonial-portraits-gettyimages.jpg?v=1&c=IWSAsset&k=2&d=HMsPc70YobsCuuAYIaW6Qc%2bSz7gpvZbkN7byMTNuY0EDY9JxezhQ3naboyfIpPPp');
+    background-image: url('../img/jaimy.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 3px 3px 3px grey;
-}
+}*/
 
 /* Portfolio */
 

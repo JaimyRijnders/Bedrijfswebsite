@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 27 aug 2015 om 15:27
+-- Gegenereerd op: 02 sep 2015 om 15:59
 -- Serverversie: 5.6.24
 -- PHP-versie: 5.5.24
 
@@ -32,16 +32,16 @@ CREATE TABLE IF NOT EXISTS `elements` (
   `content` text NOT NULL,
   `place` int(11) NOT NULL,
   `type` int(11) NOT NULL,
-  `mediaId` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `mediaId` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `elements`
 --
 
 INSERT INTO `elements` (`id`, `parent`, `content`, `place`, `type`, `mediaId`) VALUES
-(1, 1, 'SeeIfICare\n', 0, 1, 0),
-(2, 1, 'Phasellus condimentum nunc risus, et mollis est tincidunt ut. Quisque accumsan lacus sed diam vestibulum semper. Praesent sagittis non ex a volutpat. Vivamus tincidunt dapibus gravida. Cras ut neque vel nisi rhoncus finibus. Quisque lobortis massa ex, vitae volutpat lorem faucibus quis.', 10, 1, 0);
+(1, 1, 'Hallo, ik ben Maurice<br />\n<br />\nDe Hond', 10, 0, '0'),
+(29, 1, '', 0, 1, '[1, 2]');
 
 -- --------------------------------------------------------
 
@@ -70,9 +70,17 @@ INSERT INTO `main` (`id`, `title`) VALUES
 CREATE TABLE IF NOT EXISTS `media` (
   `id` int(11) NOT NULL,
   `type` int(11) NOT NULL,
-  `url` int(11) NOT NULL,
-  `settings` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `url` text NOT NULL,
+  `settings` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `media`
+--
+
+INSERT INTO `media` (`id`, `type`, `url`, `settings`) VALUES
+(1, 1, 'pinguin404.jpg', '[{hover: "hover1.png"}]'),
+(2, 1, 'jaimy.jpg', '');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -104,7 +112,7 @@ ALTER TABLE `media`
 -- AUTO_INCREMENT voor een tabel `elements`
 --
 ALTER TABLE `elements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT voor een tabel `main`
 --
@@ -114,7 +122,7 @@ ALTER TABLE `main`
 -- AUTO_INCREMENT voor een tabel `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
