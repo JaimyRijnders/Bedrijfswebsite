@@ -1,4 +1,4 @@
-<div id="portfolio">
+<div id="portfolio" class="wrapper">
 
     <div class="container">
 

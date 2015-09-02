@@ -25,7 +25,7 @@
         ?>
     </head>
     <body>
-        <div id="nav">
+        <div id="nav" class="wrapper">
             <div class="container">
                 <div id="logo">
                     <a href="<?php echo URL ?>index.php">

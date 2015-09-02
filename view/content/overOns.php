@@ -1,7 +1,7 @@
 <?php
 $parent = 1;
 ?>
-<div id="overOns">
+<div id="overOns" class="wrapper">
     <div class="container">
         <h1>
             <p class="stripes">
