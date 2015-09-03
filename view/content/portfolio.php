@@ -3,7 +3,7 @@
     <div class="container">
 
         <h1>
-            <p class="stripes2">
+            <p class="stripes">
                 ==
             </p> 
             Portfolio 
