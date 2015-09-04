@@ -44,7 +44,7 @@ var editing = {
             if(data === "1"){
                 $("[data-id='" + id + "']").remove();
             } else{
-                alert("Er is iets misgegaan");
+                alert("Er is iets misgegaan" + data.length);
             }
         });
     },

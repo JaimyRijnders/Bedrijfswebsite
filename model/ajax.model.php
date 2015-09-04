@@ -54,7 +54,7 @@ class Ajax_Model extends Model {
                 ':id' => $id
             ));
             $this->fixPlacing();
-            return true;
+            return "1";
         } catch (PDOException $e) {
             return 'Error: ' . $e->getMessage();
         }

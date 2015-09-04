@@ -21,7 +21,7 @@ class Index extends Controller {
             $this->view->title = $page[0]['title'];
             $this->view->render("subs/subTitle");
             foreach ($page as $element) {
-                
+
                 //nodige variabelen opvragen
                 $id = $element['id'];
                 $type = $element['type'];
@@ -29,9 +29,8 @@ class Index extends Controller {
                 //kijken of er media bij betrokken is
                 //media path aanmaken voor later
                 $css_media_path = array();
+                //media id's decoden naar php array
                 if ($mediaId = json_decode($element['mediaId'])) {
-                    //media id's decoden naar php array
-                    $mediaId = json_decode($element['mediaId']);
                     //uitlezen en "joinen" aan de overOns array
                     foreach ($mediaId as $mediumId) {
                         $result = $this->model->getMedium($mediumId);
@@ -44,6 +43,9 @@ class Index extends Controller {
                             //kijken of het bestand bestaat
                             if (file_exists($media_path)) {
                                 //als het bestaad inladen en de juiste parameters inladen
+                                echo $media_path . "?id=" . $result['id'] .
+                                        "&url=" . URL . "public/img/" . $result['url'] .
+                                        "&settings=" . $result['settings'] . "<br />";
                                 $this->view->subCss[] = $media_path . "?id=" . $result['id'] .
                                         "&url=" . URL . "public/img/" . $result['url'] .
                                         "&settings=" . $result['settings'];

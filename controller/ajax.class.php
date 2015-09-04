@@ -1,4 +1,4 @@
- <?php
+<?php
 
 class Ajax extends Controller {
 
@@ -50,7 +50,7 @@ class Ajax extends Controller {
             $data = $data[0];
             echo '<p class="mainText editable" data-id="' . $data['id'] . '">'
                 . $data["content"] .
-            '</p><span class="deleteElement" data-id="' . $data['id'] . '">Delete</span>';
+            '</p><span class="deleteElement" data-id="' . $data['id'] . '"><img src="public/img/removeContentButton.png"</span>';
         }
     }
 
