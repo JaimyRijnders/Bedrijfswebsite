@@ -40,6 +40,15 @@ i {
     color: white;
 }
 
+.stripes {
+    color: grey;
+    position: relative;
+    top: 20px;
+    font-family: 'MankSans', sans-serif;
+    font-size: 25px;
+    margin: 0px auto;
+}
+
 /*    Navigator    */
 
 #nav {
@@ -204,13 +213,7 @@ i {
     position: relative;
 }
 
-.stripes {
-    color: grey;
-    position: relative;
-    top: 20px;
-    font-family: 'MankSans', sans-serif;
-    font-size: 25px;
-}
+
 
 #photos {
     width: 800px;
@@ -331,11 +334,12 @@ i {
     background-image: url('../img/footerBG.png');
     background-repeat: repeat-x;
     box-shadow: 0px -5px 15px #878787;
+    text-align: center;
 }
 
 #contact .container {
     margin: 0px auto;
-    text-align: center;
+    height: inherit;
 }
 
 #contact h1 {
@@ -344,19 +348,45 @@ i {
 
 #contactList {
     margin: 0px auto;
+    text-align: center;
+    position: relative;
+    right: 19px;
 }
 
 #contactList li {
     display: inline-block;
-    padding: 20px;
+    //padding: 20px;
     vertical-align: top;
 }
 
 .contactThird {
-    border: 0px solid white;
     width: 300px;
     height: 300px;
 }
+
+#disclaimer {
+    color: white;
+    position: relative;
+    top: 80px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+
+#disclaimer a {
+    color: white;
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
+}
+
+#disclaimer a:hover {
+    color: deepskyblue;
+}
+
+
 
 /* Editing css */
 
@@ -372,3 +402,5 @@ i {
 .deleteElement:hover, .addElement:hover {
     cursor: pointer;
 }
+
+

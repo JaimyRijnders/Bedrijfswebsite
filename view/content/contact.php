@@ -3,6 +3,8 @@
 
         <h1><p class="stripes">==</p></h1>
 
+
+        
         <ul id="contactList">
             <li>
                 <div class="contactThird">
@@ -24,6 +26,8 @@
             
         </ul>
 
+        <p id="disclaimer">&COPY;&nbsp; 2015 Blue Lotus &nbsp;&nbsp; - &nbsp;&nbsp; Alle rechten voorbehouden &nbsp;&nbsp; - &nbsp;&nbsp; <a href='#'>Webmaster</a></p> 
+            
     </div>
 
 </div>
