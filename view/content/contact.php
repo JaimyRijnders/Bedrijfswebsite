@@ -6,19 +6,19 @@
         <ul id="contactList">
             <li>
                 <div class="contactThird">
-                    
+                    <i class="fa fa-question fa-3x"></i>
                 </div>
             </li>
             
             <li>
                 <div class="contactThird">
-                    
+                    <i class="fa fa-envelope fa-3x"></i>
                 </div>
             </li>
             
             <li>
                 <div class="contactThird">
-                    
+                    <i class="fa fa-phone fa-3x"></i>
                 </div>
             </li>
             
