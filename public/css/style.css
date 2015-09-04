@@ -369,10 +369,6 @@ i {
     resize: none;
 }
 
-.addElement {
-   
-}
-
-.removeElement {
-    
+.deleteElement:hover, .addElement:hover {
+    cursor: pointer;
 }
