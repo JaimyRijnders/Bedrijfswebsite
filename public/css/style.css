@@ -44,9 +44,10 @@ i {
     color: grey;
     position: relative;
     top: 20px;
-    font-family: 'MankSans', sans-serif;
+    font-family: 'Generica', sans-serif;
     font-size: 25px;
     margin: 0px auto;
+    padding-bottom: 25px;
 }
 
 /*    Navigator    */
@@ -200,7 +201,7 @@ i {
 //    top: -50px;
 //}
 
-/* 3980FA */
+
 
 /*    Over Ons    */
 
@@ -212,8 +213,6 @@ i {
     width: 100%;
     position: relative;
 }
-
-
 
 #photos {
     width: 800px;
@@ -348,7 +347,6 @@ i {
 
 #contactList {
     margin: 0px auto;
-    text-align: center;
     position: relative;
     right: 19px;
 }
@@ -357,6 +355,7 @@ i {
     display: inline-block;
     //padding: 20px;
     vertical-align: top;
+    //border: 1px solid white;
 }
 
 .contactThird {
@@ -366,8 +365,8 @@ i {
 
 #disclaimer {
     color: white;
-    position: relative;
-    top: 80px;
+    //position: relative;
+    //top: 80px;
     font-family: 'Helvetica', sans-serif;
     font-size: 12px;
     text-transform: uppercase;
@@ -386,7 +385,39 @@ i {
     color: deepskyblue;
 }
 
+.contactInfo {
+    text-align: left;
+    margin-top: 15px;
+}
 
+.contactInfo li {
+    margin-top: 10px;
+}
+
+hr {
+    border-bottom: 1px solid white;
+    width: 75%;
+    margin-top: 20px;
+}
+
+.contactThird a, p, center, b {
+    font-style: normal;
+    font-family: 'MankSans', sans-serif;
+    margin-left: 8px;
+    color: white;
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
+}
+
+.contactThird a:hover {
+    color: deepskyblue;
+}
+
+b {
+    margin-left: 40px;
+}
 
 /* Editing css */
 
