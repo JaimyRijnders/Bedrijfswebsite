@@ -3,5 +3,5 @@
 </p>
 <?php
 if ($_SESSION['cms']) {
-    echo '<span class="deleteElement" data-id="' . $this->id . '">Delete</span>';
+    echo '<span class="deleteElement" data-id="' . $this->id . '"><img src="public/img/removeContentButton.png" alt="Image not loaded"></span>';
 }
