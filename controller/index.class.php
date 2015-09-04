@@ -19,6 +19,7 @@ class Index extends Controller {
         $content = $this->getContent();
         foreach ($content as $page) {
             $this->view->title = $page[0]['title'];
+            $this->view->parentId = $this->parentId($page[0]['title']);
             $this->view->render("subs/subTitle");
             foreach ($page as $element) {
 
@@ -44,8 +45,8 @@ class Index extends Controller {
                             if (file_exists($media_path)) {
                                 //als het bestaad inladen en de juiste parameters inladen
                                 echo $media_path . "?id=" . $result['id'] .
-                                        "&url=" . URL . "public/img/" . $result['url'] .
-                                        "&settings=" . $result['settings'] . "<br />";
+                                "&url=" . URL . "public/img/" . $result['url'] .
+                                "&settings=" . $result['settings'] . "<br />";
                                 $this->view->subCss[] = $media_path . "?id=" . $result['id'] .
                                         "&url=" . URL . "public/img/" . $result['url'] .
                                         "&settings=" . $result['settings'];
@@ -71,10 +72,10 @@ class Index extends Controller {
                 $this->view->render("subs/" . $type);
             }
             $this->view->render("subs/subFooter");
-            $this->view->render('portfolio');
-            $this->view->render('contact');
-            $this->view->getFooter();
+            //$this->view->render('portfolio');
         }
+        $this->view->render('contact');
+        $this->view->getFooter();
     }
 
     public function getContent($page = false) {
@@ -95,6 +96,15 @@ class Index extends Controller {
             $newContent[$value['parent']][] = $content[$key];
         }
         return $newContent;
+    }
+
+    private function parentId($parent) {
+        $parent = strtolower($parent);
+        while($pos = strpos($parent, " ")){
+            $nextChar = $parent[$pos+1];
+            $parent = substr_replace($parent, strToUpper($nextChar), $pos, 2);
+        }
+        return $parent;
     }
 
 }
