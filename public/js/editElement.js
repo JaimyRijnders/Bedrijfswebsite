@@ -15,7 +15,7 @@ var editing = {
     },
     removeEditing: function () {
         text = $("#editing textarea").val();
-        $("#editing").html("<pre>" + $("#editingArea").val() + "</pre>");
+        $("#editing").html($("#editingArea").val());
         $("#editing").addClass("editable").attr("id", "");
     },
     newElement: function (parent) {
