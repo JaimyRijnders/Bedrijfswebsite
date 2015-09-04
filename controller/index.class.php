@@ -19,25 +19,25 @@ class Index extends Controller {
         $content = $this->getContent();
         foreach ($content as $page) {
             $this->view->title = $page[0]['title'];
-            $this->view->render("subs/title");
-            foreach ($page as $overOns) {
+            $this->view->render("subs/subTitle");
+            foreach ($page as $element) {
                 
                 //nodige variabelen opvragen
-                $id = $overOns['id'];
-                $type = $overOns['type'];
-                $this->view->parent = $overOns['parent'];
+                $id = $element['id'];
+                $type = $element['type'];
+                $this->view->parent = $element['parent'];
                 //kijken of er media bij betrokken is
                 //media path aanmaken voor later
                 $css_media_path = array();
-                if ($mediaId = json_decode($overOns['mediaId'])) {
+                if ($mediaId = json_decode($element['mediaId'])) {
                     //media id's decoden naar php array
-                    $mediaId = json_decode($overOns['mediaId']);
+                    $mediaId = json_decode($element['mediaId']);
                     //uitlezen en "joinen" aan de overOns array
                     foreach ($mediaId as $mediumId) {
                         $result = $this->model->getMedium($mediumId);
                         $result = $result[0];
                         //0 achter result om een nutteloze array te voorkomen
-                        $overOns['media'][] = $result;
+                        $element['media'][] = $result;
                         $css_media_path[] = "public/css/subs/media/" . $result["type"] . ".php";
                         //voor elk medium de css inladen
                         foreach ($css_media_path as $media_path) {
@@ -52,9 +52,9 @@ class Index extends Controller {
                     }
                 }
                 //kijken of media bestaat
-                if (isset($overOns['media'])) {
+                if (isset($element['media'])) {
                     //media doorgeven aan de view
-                    $this->view->media = $overOns['media'];
+                    $this->view->media = $element['media'];
                 }
                 //kijken of een css voor deze view is
                 $css_path = "public/css/subs/" . $type . ".php";
@@ -64,7 +64,7 @@ class Index extends Controller {
                 }
                 //goede instellingen in de view zetten
                 $this->view->id = $id;
-                $this->view->content = $overOns['content'];
+                $this->view->content = $element['content'];
                 //Zorgen dat de goede view wordt ingeladen en gerenderd
                 $this->view->render("subs/" . $type);
             }
