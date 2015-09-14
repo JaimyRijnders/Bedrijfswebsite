@@ -159,8 +159,23 @@ i {
 
 
 
+@-webkit-keyframes glowPulse {
+  from { background-image: url('../img/headerLogo.png'); }
+  50% { background-image: url('../img/headerLogoGlow.png'); }
+  to { background-image: url('../img/headerLogo.png'); }
+}
 
+@-moz-keyframes glowPulse {
+  from { background-image: url('../img/headerLogo.png'); }
+  50% { background-image: url('../img/headerLogoGlow.png'); }
+  to { background-image: url('../img/headerLogo.png'); }
+}
 
+@-o-keyframes glowPulse {
+  from { background-image: url('../img/headerLogo.png'); }
+  50% { background-image: url('../img/headerLogoGlow.png'); }
+  to { background-image: url('../img/headerLogo.png'); }
+}
 
 @keyframes glowPulse {
   from { background-image: url('../img/headerLogo.png'); }
@@ -177,7 +192,7 @@ i {
     animation-iteration-count: infinite;
     position: relative;
     top: -190px;
-    
+    background-image: url('../img/headerLogo.png');
 }
 
 
@@ -333,7 +348,10 @@ i {
     background-image: url('../img/footerBG.png');
     background-repeat: repeat-x;
     box-shadow: 0px -5px 15px #878787;
+    color: white;
     text-align: center;
+    font-style: normal;
+    font-family: 'MankSans', sans-serif;
 }
 
 #contact .container {
@@ -388,6 +406,7 @@ i {
 .contactInfo {
     text-align: left;
     margin-top: 15px;
+    text-align: justify;
 }
 
 .contactInfo li {
@@ -400,7 +419,7 @@ hr {
     margin-top: 20px;
 }
 
-.contactThird a, p, center, b {
+.contactThird a, center, b {
     font-style: normal;
     font-family: 'MankSans', sans-serif;
     margin-left: 8px;
@@ -422,6 +441,10 @@ b {
 .contactText {
     width: 80%;
     margin-top: 0px; 
+    text-align: justify;
+    position: relative;
+    top: 15px;
+    left: 35px;
 }
 
 /* Editing css */
