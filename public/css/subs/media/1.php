@@ -2,7 +2,7 @@
 header("Content-type: text/css");
 $id = $_GET['id'];
 $url = $_GET['url'];
-$settings = json_decode($_GET['settings'], true);
+$settings = json_decode(unserialize(urldecode($_GET['settings'])), true);
 ?>
 
 #media<?php echo $id ?>{
@@ -23,7 +23,7 @@ if (isset($settings['hover'])) {
     $keys = array_keys($settings['hover']);
     $i = 0;
     foreach ($settings['hover'] as $setting) {
-        echo $keys[$i] . $setting;
+        echo $keys[$i] . $setting . ";";
     }
     ?>
     }

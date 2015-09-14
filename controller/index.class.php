@@ -18,6 +18,8 @@ class Index extends Controller {
         $this->view->render('index');
         $content = $this->getContent();
         foreach ($content as $page) {
+            //subCss leegmaken
+            $this->view->subCss = array();
             $this->view->title = $page[0]['title'];
             $this->view->parentId = $this->parentId($page[0]['title']);
             $this->view->render("subs/subTitle");
@@ -35,8 +37,8 @@ class Index extends Controller {
                     //uitlezen en "joinen" aan de overOns array
                     foreach ($mediaId as $mediumId) {
                         $result = $this->model->getMedium($mediumId);
-                        $result = $result[0];
                         //0 achter result om een nutteloze array te voorkomen
+                        $result = $result[0];
                         $element['media'][] = $result;
                         $css_media_path[] = "public/css/subs/media/" . $result["type"] . ".php";
                         //voor elk medium de css inladen
@@ -44,13 +46,12 @@ class Index extends Controller {
                             //kijken of het bestand bestaat
                             if (file_exists($media_path)) {
                                 //als het bestaad inladen en de juiste parameters inladen
-                                //echo json_encode($json);
-                                //print_r(json_decode("['hover':{'background-image:':'url(../../../img/hover1.png)'}]"). true);
                                 $this->view->subCss[] = $media_path . "?id=" . $result['id'] .
                                         "&url=" . URL . "public/img/" . $result['url'] .
-                                        "&settings=" . $result['settings'];
+                                        "&settings=" . urlencode(serialize($result['settings']));
                             }
                         }
+                        $css_media_path = array();
                     }
                 }
                 //kijken of media bestaat
@@ -71,7 +72,7 @@ class Index extends Controller {
                 $this->view->render("subs/" . $type);
             }
             $this->view->render("subs/subFooter");
-            $this->view->render('portfolio');
+            //$this->view->render('portfolio');
         }
         $this->view->render('contact');
         $this->view->getFooter();
@@ -99,8 +100,8 @@ class Index extends Controller {
 
     private function parentId($parent) {
         $parent = strtolower($parent);
-        while($pos = strpos($parent, " ")){
-            $nextChar = $parent[$pos+1];
+        while ($pos = strpos($parent, " ")) {
+            $nextChar = $parent[$pos + 1];
             $parent = substr_replace($parent, strToUpper($nextChar), $pos, 2);
         }
         return $parent;
