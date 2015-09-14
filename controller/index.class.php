@@ -71,7 +71,7 @@ class Index extends Controller {
                 $this->view->render("subs/" . $type);
             }
             $this->view->render("subs/subFooter");
-            //$this->view->render('portfolio');
+            $this->view->render('portfolio');
         }
         $this->view->render('contact');
         $this->view->getFooter();

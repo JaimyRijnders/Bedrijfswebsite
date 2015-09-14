@@ -36,6 +36,20 @@ h1 {
     font-weight: normal;
 }
 
+i {
+    color: white;
+}
+
+.stripes {
+    color: grey;
+    position: relative;
+    top: 20px;
+    font-family: 'Generica', sans-serif;
+    font-size: 25px;
+    margin: 0px auto;
+    padding-bottom: 25px;
+}
+
 /*    Navigator    */
 
 #nav {
@@ -162,7 +176,8 @@ h1 {
     animation-duration: 3s;
     animation-iteration-count: infinite;
     position: relative;
-    top: -200px;
+    top: -190px;
+    
 }
 
 
@@ -186,7 +201,7 @@ h1 {
 //    top: -50px;
 //}
 
-/* 3980FA */
+
 
 /*    Over Ons    */
 
@@ -197,14 +212,6 @@ h1 {
     margin: 0;
     width: 100%;
     position: relative;
-}
-
-.stripes {
-    color: grey;
-    position: relative;
-    top: 20px;
-    font-family: 'MankSans', sans-serif;
-    font-size: 25px;
 }
 
 #photos {
@@ -261,12 +268,10 @@ h1 {
     width: 1200px;
     height: 400px;
     margin: 0px auto;
-    border: 0px solid black;
     margin-top: 65px;
 }
 
 #portfolio li {
-    border: 0px solid black;
     display: inline-block;
     width: 350px;
     height: 250px;   
@@ -277,6 +282,7 @@ h1 {
     margin-left: 15px;
     margin-right: 15px;
     box-shadow: 3px 3px 3px grey;
+    vertical-align: top;
 }
 
 .previews {
@@ -287,7 +293,8 @@ h1 {
 }
 
 #preview1 {
-    background-image: url('http://www.bluewebtemplates.com/screenshots/cyanspark-med.jpg');}
+    background-image: url('http://www.bluewebtemplates.com/screenshots/cyanspark-med.jpg');
+}
 
 #preview2 {
     background-image: url('http://www.bluewebtemplates.com/screenshots/greenworld-med.jpg');
@@ -301,7 +308,7 @@ h1 {
     width: inherit;
     height: 50px;
     background-color: black;
-    opacity: 0.5;
+    opacity: 0.75;
     margin-top: 250px;
     color: white;
 }
@@ -326,11 +333,12 @@ h1 {
     background-image: url('../img/footerBG.png');
     background-repeat: repeat-x;
     box-shadow: 0px -5px 15px #878787;
+    text-align: center;
 }
 
 #contact .container {
     margin: 0px auto;
-    text-align: center;
+    height: inherit;
 }
 
 #contact h1 {
@@ -339,17 +347,76 @@ h1 {
 
 #contactList {
     margin: 0px auto;
+    position: relative;
+    right: 19px;
 }
 
 #contactList li {
     display: inline-block;
-    padding: 20px;
+    //padding: 20px;
+    vertical-align: top;
+    //border: 1px solid white;
 }
 
 .contactThird {
-    border: 1px solid white;
     width: 300px;
     height: 300px;
+}
+
+#disclaimer {
+    color: white;
+    //position: relative;
+    //top: 80px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+
+#disclaimer a {
+    color: white;
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
+}
+
+#disclaimer a:hover {
+    color: deepskyblue;
+}
+
+.contactInfo {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.contactInfo li {
+    margin-top: 10px;
+}
+
+hr {
+    border-bottom: 1px solid white;
+    width: 75%;
+    margin-top: 20px;
+}
+
+.contactThird a, p, center, b {
+    font-style: normal;
+    font-family: 'MankSans', sans-serif;
+    margin-left: 8px;
+    color: white;
+    -webkit-transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
+}
+
+.contactThird a:hover {
+    color: deepskyblue;
+}
+
+b {
+    margin-left: 40px;
 }
 
 /* Editing css */
@@ -363,10 +430,8 @@ h1 {
     resize: none;
 }
 
-.addElement {
-   
+.deleteElement:hover, .addElement:hover {
+    cursor: pointer;
 }
 
-.removeElement {
-    
-}
+

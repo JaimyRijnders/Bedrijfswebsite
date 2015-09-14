@@ -3,10 +3,11 @@ $parent = 1;
 ?>
 <div id="overOns" class="wrapper">
     <div class="container">
-        <h1>
+        
             <p class="stripes">
-                ==
+                ═
             </p>
+        <h1>
             <?php
             echo $this->allContent[$parent][0]["title"];
             ?>

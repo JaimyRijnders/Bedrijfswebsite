@@ -1,8 +1,10 @@
+<!doctype html>
 <html>
     <head>
         <title>
             <?php echo $this->title; ?>
         </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel='stylesheet' type='text/css' href='<?php echo URL ?>public/css/<?php
         if (isset($this->style)) {
             echo $this->style;
