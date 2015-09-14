@@ -365,8 +365,8 @@ i {
 
 #disclaimer {
     color: white;
-    //position: relative;
-    //top: 80px;
+    position: relative;
+    top: 50px;
     font-family: 'Helvetica', sans-serif;
     font-size: 12px;
     text-transform: uppercase;
@@ -417,6 +417,11 @@ hr {
 
 b {
     margin-left: 40px;
+}
+
+.contactText {
+    width: 80%;
+    margin-top: 0px; 
 }
 
 /* Editing css */

@@ -11,8 +11,8 @@
                     <i class="fa fa-question fa-3x"></i>
                     <hr>
                     <ul class="contactInfo">
-                        <li class="contactInfoItem" style="text-align: center;">
-                            <p class="contactText" style="margin-left: -35px; margin-top: -5px;">
+                        <li class="contactInfoItem" style="text-align: justify;">
+                            <p class="contactText">
                                 Benieuwd wat wij voor u of uw <br /> bedrijf kunnen betekenen? Klik hieronder en laat direct een <br /><br /><b><a href="#">Offerte opmaken</a></b>
                             </p>
                         </li>
@@ -24,9 +24,9 @@
                 <div class="contactThird">
                     <i class="fa fa-phone fa-3x"></i>
                     <hr>
-                    <ul class="contactInfo" style="text-align: center;">
+                    <ul class="contactInfo" style="text-align: justify;">
                         <li class="contactInfoItem">
-                            <p class="contactText" style="margin-left: -35px; margin-top: -5px;">Mocht u ons telefonisch willen bereiken dan kunt u maandag t/m vrijdag tussen 09:00 en 17:00 <br /> bellen naar
+                            <p class="contactText">Mocht u ons telefonisch willen bereiken dan kunt u maandag t/m vrijdag tussen 09:00 en 17:00 <br /> bellen naar
                                 
                                 06 123 456 78
                             </p>
