@@ -6,7 +6,8 @@ class Index extends Controller {
         parent::__construct();
         $_SESSION['cms'] = true;
         $this->view->title = 'Home';
-        $this->view->script[] = "jquery";
+        $this->view->script[] = "external/jquery";
+        $this->view->script[] = "external/jquery.popup.min";
         $this->view->script[] = 'script';
         $this->view->script[] = 'editElement';
         //$this->view->script = 'bedrijf';

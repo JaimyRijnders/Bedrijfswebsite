@@ -6,6 +6,6 @@ if (isset($this->subCss)) {
 }
 ?>
 <div id="photos">
-    <div class="photo" id="media<?php echo $this->media[0]['id'] ?>"></div>
-    <div class="photo" style="float:right;" id="media<?php echo $this->media[1]['id'] ?>"></div>
+    <div class="photo" data-id="<?php echo $this->media[0]['id'] ?>" id="media<?php echo $this->media[0]['id'] ?>"></div>
+    <div class="photo" data-id="<?php echo $this->media[1]['id'] ?>" style="float:right;" id="media<?php echo $this->media[1]['id'] ?>"></div>
 </div>
