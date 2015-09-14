@@ -3,7 +3,6 @@ header("Content-type: text/css");
 $id = $_GET['id'];
 $url = $_GET['url'];
 $settings = json_decode($_GET['settings'], true);
-$hover = "../../../img/" . $settings["hover"];
 ?>
 
 #media<?php echo $id ?>{

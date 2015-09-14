@@ -5,18 +5,16 @@
 
 var editing = {
     click: function (e) {
+        //id van target veranderen
         e.id = "editing";
+        //zorgen dat niet elke click dit script opnieuw activeert
         $("#editing").removeClass("editable");
         element = document.getElementById("editing");
+        //textarea om het veld heen zetten
         element.innerHTML = "<textarea id='editingArea' data-id='" + $("#editing").data("id") + "'>" + element.textContent + "</textarea>";
         newTextArea = document.getElementById("editingArea");
         newTextArea.focus();
 
-    },
-    removeEditing: function () {
-        text = $("#editing textarea").val();
-        $("#editing").html($("#editingArea").val());
-        $("#editing").addClass("editable").attr("id", "");
     },
     newElement: function (parent) {
         $.ajax({
@@ -27,12 +25,12 @@ var editing = {
             },
             url: "/Bedrijfswebsite/ajax"
         }).done(function (data) {
-            if(data[0] !== false){
+            if (data[0] !== false) {
                 $("[data-parent='" + parent + "']").before(data);
             }
         });
     },
-    deleteElement: function(id){
+    deleteElement: function (id) {
         $.ajax({
             method: "POST",
             data: {
@@ -41,16 +39,17 @@ var editing = {
             },
             url: "/Bedrijfswebsite/ajax"
         }).done(function (data) {
-            if(data === "1"){
+            if (data === "1") {
                 $("[data-id='" + id + "']").remove();
-            } else{
-                alert("Er is iets misgegaan" + data.length);
+            } else {
+                alert("Er is iets misgegaan");
             }
         });
     },
     sendWithAjax: function (id, content) {
         $.ajax({
             method: "POST",
+            dataType: "json",
             data: {
                 id: id,
                 content: content,
@@ -58,7 +57,13 @@ var editing = {
             },
             url: "/Bedrijfswebsite/ajax"
         }).done(function (data) {
-            console.log(data);
+            if (data.result === true) {
+                $("#editing").html(data.content);
+                $("#editing").addClass("editable").attr("id", "");
+            } else {
+                alert("Er is iets fout gegaan");
+                console.log(data);
+            }
         });
     }
 }
@@ -68,7 +73,6 @@ $("document").ready(function () {
                 var id = $(this).data("id");
                 var content = $("#editing textarea").val();
                 $.when(editing.sendWithAjax(id, content)).done(function () {
-                    editing.removeEditing();
                 });
             })
             .on("click", ".editable", function () {

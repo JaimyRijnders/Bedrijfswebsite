@@ -44,9 +44,8 @@ class Index extends Controller {
                             //kijken of het bestand bestaat
                             if (file_exists($media_path)) {
                                 //als het bestaad inladen en de juiste parameters inladen
-                                echo $media_path . "?id=" . $result['id'] .
-                                "&url=" . URL . "public/img/" . $result['url'] .
-                                "&settings=" . $result['settings'] . "<br />";
+                                //echo json_encode($json);
+                                //print_r(json_decode("['hover':{'background-image:':'url(../../../img/hover1.png)'}]"). true);
                                 $this->view->subCss[] = $media_path . "?id=" . $result['id'] .
                                         "&url=" . URL . "public/img/" . $result['url'] .
                                         "&settings=" . $result['settings'];

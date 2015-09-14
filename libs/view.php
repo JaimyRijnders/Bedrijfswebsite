@@ -15,7 +15,7 @@ class View {
             require 'view/template/footer.php';
         }
     }
-
+    
     public function getHeader() {
         require 'view/template/header.php';
     }

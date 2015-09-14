@@ -13,7 +13,7 @@ class Ajax_Model extends Model {
                 ':id' => $id,
                 ':content' => nl2br($content)
             ));
-            return true;
+            return json_encode(array("result" => true, "content" => nl2br($content)));
         } catch (PDOException $e) {
             return 'Error: ' . $e->getMessage();
         }
