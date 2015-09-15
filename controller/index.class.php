@@ -7,15 +7,17 @@ class Index extends Controller {
         $_SESSION['cms'] = true;
         $this->view->title = 'Home';
         $this->view->script[] = "external/jquery";
-        $this->view->script[] = "external/jquery.popup.min";
         $this->view->script[] = 'script';
+        $this->view->script[] = "external/jquery.popup.min";
+        //cms scripts
         $this->view->script[] = 'editElement';
+        $this->view->script[] = 'newElement';
         //$this->view->script = 'bedrijf';
     }
 
     public function index() {
         $this->view->getHeader();
-        //$this->view->allContent = $this->getContent();
+        
         $this->view->render('index');
         $content = $this->getContent();
         foreach ($content as $page) {
@@ -73,7 +75,6 @@ class Index extends Controller {
                 $this->view->render("subs/" . $type);
             }
             $this->view->render("subs/subFooter");
-            //$this->view->render('portfolio');
         }
         $this->view->render('contact');
         $this->view->getFooter();

@@ -12,23 +12,31 @@ var editing = {
         element = document.getElementById("editing");
         //textarea om het veld heen zetten
         element.innerHTML = "<textarea id='editingArea' data-id='" + $("#editing").data("id") + "'>" + element.textContent + "</textarea>";
+        //focus op het element zetten
         newTextArea = document.getElementById("editingArea");
         newTextArea.focus();
 
     },
     newElement: function (parent) {
-        $.ajax({
-            method: "POST",
-            data: {
-                parent: parent,
-                target: "insert"
-            },
-            url: "/Bedrijfswebsite/ajax"
-        }).done(function (data) {
-            if (data[0] !== false) {
-                $("[data-parent='" + parent + "']").before(data);
+        var popupSettings = {
+            afterClose: function (e) {
+                console.log(e);
+                    $.ajax({
+                        method: "POST",
+                        data: {
+                            parent: parent,
+                            target: "insert"
+                        },
+                        url: "/Bedrijfswebsite/ajax"
+                    }).done(function (data) {
+                        if (data[0] !== false) {
+                            $("[data-parent='" + parent + "']").before(data);
+                        }
+                    });
             }
-        });
+        };
+        popup = new $.Popup(popupSettings);
+        popup.open("newElement");
     },
     deleteElement: function (id) {
         $.ajax({

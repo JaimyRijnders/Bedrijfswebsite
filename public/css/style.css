@@ -195,29 +195,6 @@ i {
     background-image: url('../img/headerLogo.png');
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//#home img {
-//    margin: 0px auto;
-//    position: relative;
-//    top: -50px;
-//}
-
-
-
 /*    Over Ons    */
 
 #overOns {
@@ -236,35 +213,6 @@ i {
     margin: 0px auto;
     padding: 30px;
 }
-/*
-#photoJonas {
-    height: 100%;
-    width: 350px;
-    float: left;
-    border: 0px dotted red;
-    background-image: url('../img/pinguin404.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-shadow: 3px 3px 3px grey;
-    -webkit-transition: background-image 0.5s; /* Safari 3.1 to 6.0 *//*
-    transition: background-image 0.5s;
-}
-
-#photoJonas:hover {
-    background-image: url('../img/hover1.png');
-    cursor: pointer;
-}
-
-#photoJaimy {
-    height: 100%;
-    width: 350px;
-    float: right;
-    border: 0px dotted red;
-    background-image: url('../img/jaimy.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    box-shadow: 3px 3px 3px grey;
-}*/
 
 /* Portfolio */
 
@@ -305,18 +253,6 @@ i {
     background-size: cover;
     background-position: center;
     overflow: hidden;
-}
-
-#preview1 {
-    background-image: url('http://www.bluewebtemplates.com/screenshots/cyanspark-med.jpg');
-}
-
-#preview2 {
-    background-image: url('http://www.bluewebtemplates.com/screenshots/greenworld-med.jpg');
-}
-
-#preview3 {
-    background-image: url('http://blog.tmimgcdn.com/wp-content/uploads/2011/04/Free-Website-Template3.jpg?bd3bd7');
 }
 
 .prevInfo {
@@ -371,9 +307,7 @@ i {
 
 #contactList li {
     display: inline-block;
-    //padding: 20px;
     vertical-align: top;
-    //border: 1px solid white;
 }
 
 .contactThird {
@@ -461,5 +395,3 @@ b {
 .deleteElement:hover, .addElement:hover {
     cursor: pointer;
 }
-
-

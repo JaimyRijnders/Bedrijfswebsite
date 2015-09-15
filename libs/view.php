@@ -7,7 +7,7 @@ class View {
     }
 
     public function render($name = false, $noInclude = true) {
-        if ($noInclude == true) {
+        if ($noInclude) {
             require 'view/content/' . $name . '.php';
         } else {
             require 'view/template/header.php';

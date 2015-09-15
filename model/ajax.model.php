@@ -61,6 +61,7 @@ class Ajax_Model extends Model {
     }
 
     private function fixPlacing() {
+        //SQL fix hier: creeeer per disctrict een subtable en zie daar doorheen te loopen
         $sth = $this->dbh->prepare("SELECT * FROM elements ORDER BY place ASC");
         try {
             $sth->execute();
