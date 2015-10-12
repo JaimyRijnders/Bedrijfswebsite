@@ -1,13 +1,31 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 18-aug-2015, 13:56:33
-    Author     : Henk
-*/
-
 #editingArea{
     width: 100%;
+}
+/* Stijl voor de popup van image uploads */
+.editPopup{
+    overflow: auto;
+    min-width: 700px;
+}
+.imageUpload{
+    width: 50%;
+    display: inline-block;
+    min-width: 200px;
+    float: left;
+}
+.imageUpload input{
+    width: 100%;
+    display: block;
+}
+.uploadSettings{
+    width: auto;
+    display: inline-block;
+    width: auto;
+    float: left;
+}
+#addCssElement{
+    cursor: pointer;
+}
+.submitPopup{
+    clear: both;
+    float: right;
 }

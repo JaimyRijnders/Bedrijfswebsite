@@ -17,7 +17,6 @@ class Index extends Controller {
 
     public function index() {
         $this->view->getHeader();
-        
         $this->view->render('index');
         $content = $this->getContent();
         foreach ($content as $page) {

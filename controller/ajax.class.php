@@ -25,6 +25,11 @@ class Ajax extends Controller {
                         $this->insertAjax($_POST['parent']);
                     }
                     break;
+                case "edit": 
+                        if(isset($id)){
+                            $this->getEdit($id);
+                        }
+                    break;
                 case "delete":
                     if (isset($id)) {
                         $this->deleteAjax($id);
@@ -40,7 +45,10 @@ class Ajax extends Controller {
     private function updateAjax($id, $content) {
         echo $this->model->editElement($id, $content);
     }
-
+    private function getEdit($id){
+        echo $this->model->getElement($id);
+    }
+    
     private function insertAjax($parent) {
         $data = $this->model->addElement($parent);
         if (gettype($data) != "array") {

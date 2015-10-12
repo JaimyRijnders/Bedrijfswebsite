@@ -5,7 +5,6 @@
             <?php echo $this->title; ?>
         </title>
         <link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type='text/css' href="<?php echo URL ?>public/css/popup.css">
         <link rel='stylesheet' type='text/css' href='<?php echo URL ?>public/css/<?php
         if (isset($this->style)) {
             echo $this->style;
@@ -13,7 +12,9 @@
             echo 'style';
         }
         ?>.css'>
-
+        
+        <link rel="stylesheet" type='text/css' href="<?php echo URL ?>public/css/cms.css">
+        <link rel="stylesheet" type='text/css' href="<?php echo URL ?>public/css/popup.css">
         <?php
         //script moet in array worden geleverd
         if (isset($this->script)) {

@@ -17,26 +17,20 @@ var editing = {
         newTextArea.focus();
 
     },
-    newElement: function (parent) {
-        var popupSettings = {
-            afterClose: function (e) {
-                console.log(e);
-                    $.ajax({
-                        method: "POST",
-                        data: {
-                            parent: parent,
-                            target: "insert"
-                        },
-                        url: "/Bedrijfswebsite/ajax"
-                    }).done(function (data) {
-                        if (data[0] !== false) {
-                            $("[data-parent='" + parent + "']").before(data);
-                        }
-                    });
-            }
-        };
-        popup = new $.Popup(popupSettings);
+    newElement: function (parentId) {
+        popup = new $.Popup();
+        popup.parentId = parentId;
         popup.open("newElement");
+    },
+    editElement: function(id){
+          $.ajax({
+            method: "POST",
+            data: {
+                id: id,
+                target: "edit"
+            },
+            url: "/Bedrijfswebsite/ajax"
+        }).done(function (data) {});
     },
     deleteElement: function (id) {
         $.ajax({
@@ -89,6 +83,10 @@ $("document").ready(function () {
             .on("click", ".addElement", function () {
                 var parent = $(this).data("parent");
                 editing.newElement(parent);
+            })
+            .on("click", ".editElement", function () {
+                var id = $(this).data("id");
+                editing.editElement(id);
             })
             .on("click", ".deleteElement", function () {
                 var id = $(this).data("id");

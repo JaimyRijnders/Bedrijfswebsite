@@ -39,9 +39,8 @@ class Ajax_Model extends Model {
                             INNER JOIN `elements`
                             ON main.id = elements.parent
                             ORDER BY elements.id DESC LIMIT 1");
-                $sth->execute();
-                return $sth->fetchall(PDO::FETCH_ASSOC);
-                
+            $sth->execute();
+            return $sth->fetchall(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             return 'Error: ' . $e->getMessage();
         }
@@ -60,20 +59,39 @@ class Ajax_Model extends Model {
         }
     }
 
+    public function getElement($id) {
+        $sth = $this->dbh->prepare("SELECT * FROM `elements` WHERE `id` = :id");
+        try {
+            $sth->execute(array(
+                        ':id' => $id
+            ));
+            $result = $sth->fetchall(PDO::FETCH_ASSOC);
+            if(isset($result['media']) && !empty($result['media'])){
+                $media = json_decode($result['media']);
+                $result['media'] = "";
+                foreach($result['media'] as $medium){
+                    $result['media'][] = $medium;
+                }
+            }
+        } catch (PDOException $e) {
+            return 'Error: ' . $e->getMessage();
+        }
+    }
+
     private function fixPlacing() {
         //SQL fix hier: creeeer per disctrict een subtable en zie daar doorheen te loopen
         $sth = $this->dbh->prepare("SELECT * FROM elements ORDER BY place ASC");
         try {
             $sth->execute();
             $results = $sth->fetchall(PDO::FETCH_ASSOC);
-            $i=0;
-            foreach($results as $result){
-                $sth= $this->dbh->prepare("UPDATE elements SET place = :i WHERE id = :id ");
+            $i = 0;
+            foreach ($results as $result) {
+                $sth = $this->dbh->prepare("UPDATE elements SET place = :i WHERE id = :id ");
                 $sth->execute(Array(
                     ":i" => $i,
                     ":id" => $result["id"]
                 ));
-                $i= $i + 10;
+                $i = $i + 10;
             }
         } catch (PDOException $e) {
             return 'Error: ' . $e->getMessage();
