@@ -34,7 +34,7 @@
                     <ul class="contactInfo">
                         <li class="contactInfoItem"><i class="fa fa-facebook-official"></i><a href="#">Facebook.com/BlueLotus</a></i></li>
                         <li class="contactInfoItem"><i class="fa fa-twitter"><a href="#">Twitter.com/BlueLotus</a></i></li>
-                        <li class="contactInfoItem"><i class="fa fa-envelope"><a href="#">info@BlueLotus.nl</a></i></li>
+                        <li class="contactInfoItem"><i class="fa fa-envelope"><a href="#">info@bluelotus.nl</a></i></li>
                     </ul>
                 </div>
             </li>

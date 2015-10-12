@@ -158,7 +158,7 @@ i {
 
 
 
-
+/*
 @-webkit-keyframes glowPulse {
   from { background-image: url('../img/headerLogo.png'); }
   50% { background-image: url('../img/headerLogoGlow.png'); }
@@ -182,6 +182,31 @@ i {
   50% { background-image: url('../img/headerLogoGlow.png'); }
   to { background-image: url('../img/headerLogo.png'); }
 }
+*/
+
+@-webkit-keyframes glowPulse {
+  from { background-image: url('../img/testLogo.png'); }
+  50% { background-image: url('../img/testLogoGlow.png'); }
+  to { background-image: url('../img/testLogo.png'); }
+}
+
+@-moz-keyframes glowPulse {
+  from { background-image: url('../img/testLogo.png'); }
+  50% { background-image: url('../img/testLogoGlow.png'); }
+  to { background-image: url('../img/testLogo.png'); }
+}
+
+@-o-keyframes glowPulse {
+  from { background-image: url('../img/testLogo.png'); }
+  50% { background-image: url('../img/testLogoGlow.png'); }
+  to { background-image: url('../img/testLogo.png'); }
+}
+
+@keyframes glowPulse {
+  from { background-image: url('../img/testLogo.png'); }
+  50% { background-image: url('../img/testLogoGlow.png'); }
+  to { background-image: url('../img/testLogo.png'); }
+}
 
 .headerLogo {
     margin: 0px auto;
@@ -192,7 +217,7 @@ i {
     animation-iteration-count: infinite;
     position: relative;
     top: -190px;
-    background-image: url('../img/headerLogo.png');
+    background-image: url('../img/testLogo.png');
 }
 
 /*    Over Ons    */
